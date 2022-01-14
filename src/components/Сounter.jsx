@@ -13,7 +13,7 @@ const Counter = () => {
     
 
     return (
-        <div>
+        <div className="func-counter">
             <h1>Значение : {count}</h1>
             <button onClick={huiStonks}>Тык и он вырос на 10</button>
             <button onClick={huiDebaff}>Тык и он уменьшился на 5</button>

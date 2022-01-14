@@ -21,7 +21,7 @@ export default class СlassCounet extends Component {
 
     render() {
         return (
-            <div>
+            <div className="class-counter">
                 <h1>Значение : {this.state.count}</h1>
                 <button onClick={this.countStonks}>Тык и он вырос на 1</button>
                 <button onClick={this.countDebaff}>Тык и он уменьшился на 1</button>
