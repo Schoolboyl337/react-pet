@@ -1,15 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 const Counter = () => {
     const [count,setCount] = useState(0)
 
+    useEffect(() => {
+      document.title = `Вы нажали ${count} раз`;
+    });
+
     function countStonks() {
-        setCount(count + 10)
-      }
+      setCount(count + 10)
+    }
     
-      function countDebaff() {
-        setCount(count - 5)
-      }
+    function countDebaff() {
+      setCount(count - 5)
+    }
     
 
     return (
