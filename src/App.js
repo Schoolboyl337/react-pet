@@ -19,18 +19,11 @@ function App() {
     {id:3, value:"Run", discription:"Texsom"},
   ])
 
-  const [value,setTitle] = useState('')
-  const [discription,setBody] = useState('')
+  const [post,setPost] = useState({value: '', discription: ''})
   const addNewPost = (e)=> {
     e.preventDefault()
-    const newPost = {
-      id: Date.now(),
-      value,
-      discription
-    }
-    setToDoList([...toDoList,newPost])
-    setTitle('')
-    setBody('')
+    setToDoList([...toDoList, {...post, id:Date.now()}])
+    setPost({value: '', discription: ''})
   }
 
 
@@ -42,14 +35,14 @@ function App() {
       </div>
       <form>
         <MyInput
-          value={value}
-          onChange={e => setTitle(e.target.value)}
+          value={post.value}
+          onChange={e => setPost({...post,value:e.target.value})}
           type="text"
           placeholder="Название"
         />
         <MyInput
-          value={discription}
-          onChange={e => setBody(e.target.value)}
+          value={post.discription}
+          onChange={e => setPost({...post,discription:e.target.value})}
           type="text" 
           placeholder="Описание"
         />
