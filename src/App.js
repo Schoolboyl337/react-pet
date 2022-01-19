@@ -3,8 +3,6 @@ import "../src/styles/app.css"
 import Counter from "./components/Сounter";
 import ClassCounter from "./components/СlassCounter"
 import PostList from "./components/PostList";
-import MyButton from "./components/UI/button/MyButton";
-import MyInput from "./components/UI/input/MyInput";
 import PostForm from "./components/PostForm";
 
 
