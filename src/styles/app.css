@@ -8,6 +8,10 @@
     width: 1000px;
 }
 
+.ta-c {
+    text-align: center;
+}
+
 .counters {
     display: flex;
     flex-direction: row;

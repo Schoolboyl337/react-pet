@@ -5,6 +5,7 @@ import ClassCounter from "./components/СlassCounter"
 import PostList from "./components/PostList";
 import MyButton from "./components/UI/button/MyButton";
 import MyInput from "./components/UI/input/MyInput";
+import PostForm from "./components/PostForm";
 
 
 function App() {
@@ -19,13 +20,13 @@ function App() {
     {id:3, value:"Run", discription:"Texsom"},
   ])
 
-  const [post,setPost] = useState({value: '', discription: ''})
-  const addNewPost = (e)=> {
-    e.preventDefault()
-    setToDoList([...toDoList, {...post, id:Date.now()}])
-    setPost({value: '', discription: ''})
+  const createPost = (newPost)=> {
+    setToDoList([...toDoList,newPost])
   }
 
+  const removePost = (post)=> {
+    setToDoList(toDoList.filter(p => p.id !== post.id))
+  }
 
   return (
     <div className="App">
@@ -33,23 +34,12 @@ function App() {
         <Counter />
         <ClassCounter />
       </div>
-      <form>
-        <MyInput
-          value={post.value}
-          onChange={e => setPost({...post,value:e.target.value})}
-          type="text"
-          placeholder="Название"
-        />
-        <MyInput
-          value={post.discription}
-          onChange={e => setPost({...post,discription:e.target.value})}
-          type="text" 
-          placeholder="Описание"
-        />
-        <MyButton onClick={addNewPost}>Создать дело</MyButton>
-      </form>
+      <PostForm create={createPost}/>
       <PostList posts={foodList} title="Cписок Еды" />
-      <PostList posts={toDoList} title="Cписок Дел" />
+      {toDoList.length
+        ? <PostList remove={removePost} posts={toDoList} title="Cписок Дел" />
+        : <h1 className="ta-c">Сегодня без дел,отдыхай!</h1>
+      }
     </div>
   );
 }
